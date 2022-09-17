@@ -1,6 +1,6 @@
 #!/bin/bash
 # remember to create cache volume
-if ! docker volume inspect satnogs-auto-scheduler-cache > /dev/null; then
+if ! docker volume inspect satnogs-auto-scheduler-cache > /dev/null 2>&1 ; then
 	echo "creating cache volume"
 	docker volume create satnogs-auto-scheduler-cache
 	docker run --rm -u 0:0 -v satnogs-auto-scheduler-cache:/tmp/cache/ -it satnogs-auto-scheduler chown -R satnogs:satnogs /tmp/cache/
