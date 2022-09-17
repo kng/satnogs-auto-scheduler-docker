@@ -1,4 +1,4 @@
 #!/bin/bash
-docker build -t satnogs-auto-scheduler:latest .
+docker build -t knegge/satnogs-auto-scheduler:latest .
 # --no-cache
 

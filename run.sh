@@ -3,7 +3,7 @@
 if ! docker volume inspect satnogs-auto-scheduler-cache > /dev/null 2>&1 ; then
 	echo "creating cache volume"
 	docker volume create satnogs-auto-scheduler-cache
-	docker run --rm -u 0:0 -v satnogs-auto-scheduler-cache:/tmp/cache/ -it satnogs-auto-scheduler chown -R satnogs:satnogs /tmp/cache/
+	docker run --rm -u 0:0 -v satnogs-auto-scheduler-cache:/tmp/cache/ -it knegge/satnogs-auto-scheduler chown -R satnogs:satnogs /tmp/cache/
 fi
 source .env
 docker run --rm \
@@ -12,5 +12,5 @@ docker run --rm \
 	-e SATNOGS_API_TOKEN="${SATNOGS_API_TOKEN}" \
 	-e SATNOGS_DB_API_TOKEN="${SATNOGS_DB_API_TOKEN}" \
 	-v satnogs-auto-scheduler-cache:/tmp/cache/ \
-	-it satnogs-auto-scheduler "$@"
+	-it knegge/satnogs-auto-scheduler "$@"
 
