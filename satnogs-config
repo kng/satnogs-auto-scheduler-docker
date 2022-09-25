@@ -1,5 +1,3 @@
-# Copy this file to .env and complete the information needed
-
 # Your SatNOGS station ID
 SATNOGS_STATION_ID=""
 
